@@ -2,11 +2,24 @@ body {
   font-family: 'Roboto', sans-serif;
 background: #f7f7f7;
 }
+.container {
+  max-width: 960px;
+}
 
 h1, h2, h3, h4 ,h5 ,h6 {
   font-family: 'Roboto Slab', serif;
 }
 
-.container {
-  max-width: 960px;
+.font-roboto-slab {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+.btn {
+  cursor: pointer;
 }

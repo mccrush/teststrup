@@ -18,6 +18,11 @@ export default {
   components: {
     Navbar,
     Footer
+  },
+  created() {
+    $(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
   }
 };
 </script>
