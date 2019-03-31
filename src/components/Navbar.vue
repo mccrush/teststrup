@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-between shadow-sm">
     <!-- <router-link class="navbar-brand font-roboto-slab" to="/">
       <img src="/img/icons/favicon-32x32.png" width="32" height="32" class="d-inline-block align-top" alt>&nbsp;
       <strong>Тест Струпа</strong>

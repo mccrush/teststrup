@@ -1,9 +1,10 @@
 body {
   font-family: 'Roboto', sans-serif;
-background: #f7f7f7;
+  background: #f7f7f7;
 }
 .container {
   max-width: 960px;
+  background-color: #ffffff;
 }
 
 h1, h2, h3, h4 ,h5 ,h6 {
