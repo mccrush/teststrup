@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-4 shadow-sm">
+  <div class="container mt-4">
     <div id="ruls">
       Необходимо как можно быстреe вслух произносить
       <strong>цвет</strong> написанного слова
@@ -110,7 +110,14 @@ export default {
       max: 4
     };
   },
-  created() {},
+  created() {
+    window.onkeydown = function(event) {
+      console.log("Нажата клавиша");
+      if (event.keyCode == 32) {
+        this.run;
+      }
+    };
+  },
   methods: {
     run: function() {
       document.getElementById("ruls").style = "transition: 1s; opacity: 0;";
@@ -184,18 +191,23 @@ export default {
     startTimer: function() {
       let timer = document.getElementById("timer");
       let m = 0,
-        s = 0;
+        s = 0,
+        mls = 0;
       this.timerId = setInterval(() => {
-        s += 1;
-        if (s > 59) {
-          m += 1;
-          s = 0;
+        mls += 1;
+        if (mls > 9) {
+          s += 1;
+          mls = 0;
+          if (s > 59) {
+            m += 1;
+            s = 0;
+          }
         }
-
+        //let mlsi = mls < 10 ? "0" + mls : mls;
         let mi = m < 10 ? "0" + m : m;
         let si = s < 10 ? "0" + s : s;
-        timer.innerText = mi + ":" + si;
-      }, 1000);
+        timer.innerText = mi + ":" + si + ":" + mls;
+      }, 100);
     }
   }
 };
@@ -205,8 +217,7 @@ table td {
   padding: 10px 0 10px 0;
   text-align: center;
   font-size: 1.4rem;
-  font-weight: 400;
-  font-family: "Roboto Slab", serif;
+  font-weight: 700;
 }
 .btn-lg {
   font-size: 1rem;
