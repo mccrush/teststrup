@@ -6,6 +6,10 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <router-view/>
+    <div id="ruls">
+      Необходимо как можно быстреe вслух произносить
+      <strong>цвет</strong> написанного слова
+    </div>
     <Footer/>
   </div>
 </template>

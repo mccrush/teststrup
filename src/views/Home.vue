@@ -1,12 +1,9 @@
 <template>
   <div class="container mt-4">
-    <div id="ruls">
-      Необходимо как можно быстреe вслух произносить
-      <strong>цвет</strong> написанного слова
-    </div>
+    
     <div class="row justify-content-center">
       <div class="col">
-        <table class="table table-borderless table-sm" cellspacing="0" cellpadding="0">
+        <table class="table table-borderless table-sm mt-4" cellspacing="0" cellpadding="0">
           <tr>
             <td class="11">&nbsp;</td>
             <td class="12">&nbsp;</td>
@@ -88,7 +85,7 @@
     </div>
 
     <div class="row">
-      <div class="col p-3 text-center" id="timer">00:00</div>
+      <div class="col p-3 text-center" id="timer">00:00:0</div>
     </div>
   </div>
 </template>
