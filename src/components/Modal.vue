@@ -4,25 +4,37 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Что нужно делать?</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">{{local.modalwindow.title}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          Необходимо как можно быстреe вслух произносить
-          <strong>цвета</strong> написанных слов
-        </div>
+        <div class="modal-body">{{local.modalwindow.message}}</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="closeModalWindowForeve">Закрыть и больше не показывать</button>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Ясно</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="closeModalWindowForeve">{{local.modalwindow.buttoncloseforeve}}</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">{{local.modalwindow.buttonclose}}</button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import En from "@/language/en.js";
+import Ru from "@/language/ru.js";
+
 export default {
+  data() {
+    return {
+      local: {}
+    };
+  },
+  created() {
+    if (localStorage.getItem("local") == "Ru") {
+      this.local = Ru;
+    } else {
+      this.local = En;
+    }
+  },
   methods: {
     closeModalWindowForeve: function() {
       localStorage.setItem("showmodal", false);

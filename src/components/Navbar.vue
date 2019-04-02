@@ -16,7 +16,6 @@ import Ru from "@/language/ru.js";
 export default {
   data() {
     return {
-      statusShow: false,
       local: {}
     };
   },
