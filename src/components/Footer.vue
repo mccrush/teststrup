@@ -11,3 +11,8 @@
     </p>
   </nav>
 </template>
+<style scoped>
+a {
+  text-decoration: underline;
+}
+</style>
