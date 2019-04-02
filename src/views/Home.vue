@@ -97,11 +97,14 @@
 export default {
   name: "home",
   components: {},
+  props: {
+    local: Object
+  },
   data() {
     return {
       status: false,
       timerId: "",
-      buttonText: "Start",
+      buttonText: this.local.buttonstart,
       min: 1,
       max: 4
     };
@@ -118,7 +121,7 @@ export default {
     run: function() {
       if (!this.status) {
         this.status = true;
-        this.buttonText = "Stop";
+        this.buttonText = this.local.buttonstop;
 
         for (var i = 1; i < 11; i++) {
           for (var j = 1; j < 6; j++) {
@@ -142,30 +145,24 @@ export default {
               case 4:
                 var mcolor = "#689F38";
                 break;
-              // case 5:
-              //   var mcolor = "#795548";
-              //   break;
               default:
                 var mcolor = "#000000";
             }
             switch (ranText) {
               case 1:
-                var mtext = "Красный";
+                var mtext = this.local.color.red;
                 break;
               case 2:
-                var mtext = "Синий";
+                var mtext = this.local.color.blue;
                 break;
               case 3:
-                var mtext = "Желтый";
+                var mtext = this.local.color.yellow;
                 break;
               case 4:
-                var mtext = "Зеленый";
+                var mtext = this.local.color.green;
                 break;
-              // case 5:
-              //   var mtext = "Коричневый";
-              //   break;
               default:
-                var mtext = "Красный";
+                var mtext = this.local.color.red;
             }
 
             $("." + i + "" + j).text(mtext);
@@ -178,7 +175,7 @@ export default {
         this.startTimer();
       } else {
         this.status = false;
-        this.buttonText = "Start";
+        this.buttonText = this.local.buttonstart;
         clearInterval(this.timerId);
       }
     },

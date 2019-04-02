@@ -11,20 +11,9 @@
   </nav>
 </template>
 <script>
-import En from "@/language/en.js";
-import Ru from "@/language/ru.js";
 export default {
-  data() {
-    return {
-      local: {}
-    };
-  },
-  created() {
-    if (localStorage.getItem("local") == "Ru") {
-      this.local = Ru;
-    } else {
-      this.local = En;
-    }
+  props: {
+    local: Object
   },
   methods: {
     showSettings: function() {

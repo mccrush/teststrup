@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-    <Navbar/>
+    <Navbar :local="local"/>
     <!-- <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view/>
-    <Footer/>
-    <Settings/>
-    <Modal/>
+    <router-view :local="local"/>
+    <Footer :local="local"/>
+    <Settings :local="local"/>
+    <Modal :local="local"/>
   </div>
 </template>
 
 <script>
+import En from "@/language/en.js";
+import Ru from "@/language/ru.js";
+
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import Settings from "@/components/Settings.vue";
@@ -25,7 +28,18 @@ export default {
     Settings,
     Modal
   },
+  data() {
+    return {
+      local: {}
+    };
+  },
   created() {
+    if (localStorage.getItem("local") == "Ru") {
+      this.local = Ru;
+    } else {
+      this.local = En;
+    }
+
     $(function() {
       $('[data-toggle="tooltip"]').tooltip();
       if (
