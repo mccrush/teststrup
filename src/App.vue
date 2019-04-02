@@ -32,7 +32,7 @@ export default {
         !localStorage.getItem("showmodal") ||
         localStorage.getItem("showmodal") == true
       ) {
-        console.log("Ну да, куки ент");
+        //console.log("Ну да, куки ент");
         $("#modalWindow").modal("show");
       }
     });

@@ -101,7 +101,7 @@ export default {
     return {
       status: false,
       timerId: "",
-      buttonText: "Старт",
+      buttonText: "Start",
       min: 1,
       max: 4
     };
@@ -116,11 +116,9 @@ export default {
   },
   methods: {
     run: function() {
-      document.getElementById("ruls").style = "transition: 1s; opacity: 0;";
-
       if (!this.status) {
         this.status = true;
-        this.buttonText = "Стоп";
+        this.buttonText = "Stop";
 
         for (var i = 1; i < 11; i++) {
           for (var j = 1; j < 6; j++) {
@@ -180,7 +178,7 @@ export default {
         this.startTimer();
       } else {
         this.status = false;
-        this.buttonText = "Старт";
+        this.buttonText = "Start";
         clearInterval(this.timerId);
       }
     },
