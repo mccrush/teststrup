@@ -6,12 +6,9 @@
       <router-link to="/about">About</router-link>
     </div>-->
     <router-view/>
-    <div id="ruls">
-      Необходимо как можно быстреe вслух произносить
-      <strong>цвет</strong> написанного слова
-    </div>
     <Footer/>
     <Settings/>
+    <Modal/>
   </div>
 </template>
 
@@ -19,16 +16,25 @@
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import Settings from "@/components/Settings.vue";
+import Modal from "@/components/Modal.vue";
 
 export default {
   components: {
     Navbar,
     Footer,
-    Settings
+    Settings,
+    Modal
   },
   created() {
     $(function() {
       $('[data-toggle="tooltip"]').tooltip();
+      if (
+        !localStorage.getItem("showmodal") ||
+        localStorage.getItem("showmodal") == true
+      ) {
+        console.log("Ну да, куки ент");
+        $("#modalWindow").modal("show");
+      }
     });
     //eventEmitter.$emit("keydow");
   },
