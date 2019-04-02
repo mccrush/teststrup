@@ -1,7 +1,14 @@
 body {
   font-family: 'Roboto', sans-serif;
   background: #f7f7f7;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
+
+.navbar {
+  z-index: 50;
+}
+
 .container {
   max-width: 960px;
   background-color: #ffffff;

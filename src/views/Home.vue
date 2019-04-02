@@ -1,6 +1,5 @@
 <template>
   <div class="container mt-4">
-    
     <div class="row justify-content-center">
       <div class="col">
         <table class="table table-borderless table-sm mt-4" cellspacing="0" cellpadding="0">
@@ -92,7 +91,7 @@
 
 <script>
 // @ is an alias to /src
-//import HelloWorld from "@/components/HelloWorld.vue";
+//import Settings from "@/components/Settings.vue";
 //import { eventEmitter } from "../main.js";
 
 export default {

@@ -11,17 +11,20 @@
       <strong>цвет</strong> написанного слова
     </div>
     <Footer/>
+    <Settings/>
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import Settings from "@/components/Settings.vue";
 
 export default {
   components: {
     Navbar,
-    Footer
+    Footer,
+    Settings
   },
   created() {
     $(function() {

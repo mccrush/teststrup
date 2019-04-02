@@ -7,6 +7,28 @@
 
     <img src="/img/icons/favicon-32x32.png" width="32" height="32" alt="Тест Струпа">
     <span class="font-roboto-slab">Тест Струпа</span>
-    <i class="material-icons md-24 btn btn-sm" title="Settings" data-toggle="tooltip" data-placement="left">settings</i>
+    <i class="material-icons md-24 btn btn-sm" title="Settings" data-toggle="tooltip" data-placement="left" @click="showSettings">settings</i>
   </nav>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      statusShow: false
+    };
+  },
+  created() {},
+  methods: {
+    showSettings: function() {
+      let settings = document.querySelector("#settings");
+      if (!this.statusShow) {
+        settings.style = "right:0px";
+        this.statusShow = true;
+      } else {
+        settings.style = "right:-260px";
+        this.statusShow = false;
+      }
+    }
+  }
+};
+</script>
