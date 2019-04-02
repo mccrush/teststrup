@@ -13,6 +13,8 @@
 </template>
 
 <script>
+//import { eventEmitter } from "./main.js";
+
 import En from "@/language/en.js";
 import Ru from "@/language/ru.js";
 
@@ -52,6 +54,7 @@ export default {
     });
     //eventEmitter.$emit("keydow");
   },
+  mounted() {},
   methods: {
     kedo: function() {
       eventEmitter.$emit("keydow");

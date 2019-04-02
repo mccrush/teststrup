@@ -2,16 +2,16 @@
   <div id="settings" class="settings shadow bg-white pt-5 pl-3 pr-3">
     <form class="mt-3">
       <div class="form-group">
-        <label for="exampleFormControlSelect1">{{local.selectlanguage.title}}</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <label for="selectlanguage">{{local.selectlanguage.title}}</label>
+        <select class="form-control" id="selectlanguage" @change="setLanguage" v-model="lang">
           <option>{{local.selectlanguage.en}}</option>
           <option>{{local.selectlanguage.ru}}</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="exampleFormControlSelect1">{{local.selectshowtime.title}}</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <label for="selectshowtime">{{local.selectshowtime.title}}</label>
+        <select class="form-control" id="selectshowtime">
           <option>{{local.selectshowtime.yes}}</option>
           <option>{{local.selectshowtime.no}}</option>
         </select>
@@ -21,16 +21,25 @@
   </div>
 </template>
 <script>
-import En from "@/language/en.js";
-import Ru from "@/language/ru.js";
+//import { eventEmitter } from "./../main.js";
+
 export default {
   props: {
     local: Object
   },
   data() {
-    return {};
+    return {
+      lang: localStorage.getItem("local")
+    };
   },
-  created() {}
+  created() {},
+  methods: {
+    setLanguage: function() {
+      localStorage.setItem("local", this.lang);
+      location.reload();
+      //this.$emit("udatesettings");
+    }
+  }
 };
 </script>
 <style scoped>
