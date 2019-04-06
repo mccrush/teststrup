@@ -12,6 +12,21 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/index.html',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/teststrup/index.html',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/ts/index.html',
+      name: 'home',
+      component: Home
     }
     // {
     //   path: '/about',
