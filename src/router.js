@@ -19,12 +19,22 @@ export default new Router({
       component: Home
     },
     {
+      path: '/teststrup/',
+      name: 'home',
+      component: Home
+    },
+    {
       path: '/teststrup/index.html',
       name: 'home',
       component: Home
     },
     {
       path: '/ts/index.html',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/ts/',
       name: 'home',
       component: Home
     }
