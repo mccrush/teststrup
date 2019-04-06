@@ -1,6 +1,6 @@
 {
-  "name": "teststrup.dev",
-  "short_name": "teststrup.dev",
+  "name": "Stroop test",
+  "short_name": "ts",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
