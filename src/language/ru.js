@@ -25,5 +25,6 @@ export default {
     blue: 'Синий',
     yellow: 'Желтый',
     green: 'Зеленый'
-  }
+  },
+  buttonsave: "Сохранить"
 }

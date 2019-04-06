@@ -3,7 +3,7 @@
     <form class="mt-3">
       <div class="form-group">
         <label for="selectlanguage">{{local.selectlanguage.title}}</label>
-        <select class="form-control" id="selectlanguage" @change="setLanguage" v-model="lang">
+        <select class="form-control form-control-sm" id="selectlanguage" v-model="lang">
           <option>{{local.selectlanguage.en}}</option>
           <option>{{local.selectlanguage.ru}}</option>
         </select>
@@ -11,13 +11,14 @@
 
       <div class="form-group">
         <label for="selectshowtime">{{local.selectshowtime.title}}</label>
-        <select class="form-control" id="selectshowtime">
+        <select class="form-control form-control-sm" id="selectshowtime">
           <option>{{local.selectshowtime.yes}}</option>
           <option>{{local.selectshowtime.no}}</option>
         </select>
       </div>
+      <button class="btn btn-success btn-block btn-sm" @click="saveSettings">{{local.buttonsave}}</button>
     </form>
-    <div v-html="local.descriptionapp"></div>
+    <div v-html="local.descriptionapp" class="mt-2"></div>
   </div>
 </template>
 <script>
@@ -34,10 +35,9 @@ export default {
   },
   created() {},
   methods: {
-    setLanguage: function() {
+    saveSettings() {
       localStorage.setItem("local", this.lang);
       location.reload();
-      //this.$emit("udatesettings");
     }
   }
 };

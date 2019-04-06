@@ -25,5 +25,6 @@ export default {
     blue: 'Blue',
     yellow: 'Yellow',
     green: 'Green'
-  }
+  },
+  buttonsave: "Save"
 }
