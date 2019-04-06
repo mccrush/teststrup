@@ -109,16 +109,8 @@ export default {
       max: 4
     };
   },
-  created() {
-    window.onkeydown = function(event) {
-      console.log("Нажата клавиша");
-      if (event.keyCode == 32) {
-        this.run;
-      }
-    };
-  },
   methods: {
-    run: function() {
+    run() {
       if (!this.status) {
         this.status = true;
         this.buttonText = this.local.buttonstop;

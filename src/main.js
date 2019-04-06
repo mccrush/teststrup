@@ -4,7 +4,7 @@ import router from './router'
 import './registerServiceWorker'
 
 Vue.config.productionTip = false
-export const eventEmitter = new Vue();
+//export const eventEmitter = new Vue();
 
 new Vue({
   router,

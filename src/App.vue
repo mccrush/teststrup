@@ -56,9 +56,7 @@ export default {
   },
   mounted() {},
   methods: {
-    kedo: function() {
-      eventEmitter.$emit("keydow");
-    }
+ 
   }
 };
 </script>
