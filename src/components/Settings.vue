@@ -16,7 +16,7 @@
           <option>{{local.selectshowtime.no}}</option>
         </select>
       </div>
-      <button class="btn btn-success btn-block btn-sm" @click="saveSettings">{{local.buttonsave}}</button>
+      <button class="btn btn-success btn-block btn-sm" @click.prevent="saveSettings">{{local.buttonsave}}</button>
     </form>
     <div v-html="local.descriptionapp" class="mt-2"></div>
   </div>
