@@ -84,7 +84,7 @@
     </div>
 
     <div class="row">
-      <div class="col p-3 text-center" id="timer">00:00:0</div>
+      <div v-if="showtime == 'Yes' || showtime == 'Да'" class="col p-3 text-center" id="timer">00:00:0</div>
     </div>
   </div>
 </template>
@@ -98,7 +98,8 @@ export default {
   name: "home",
   components: {},
   props: {
-    local: Object
+    local: Object,
+    showtime: String
   },
   data() {
     return {
@@ -163,12 +164,16 @@ export default {
             //console.log('.'+i+''+j);
           }
         }
-        clearInterval(this.timerId);
-        this.startTimer();
+        if (this.showtime == "Yes" || this.showtime == "Да") {
+          clearInterval(this.timerId);
+          this.startTimer();
+        }
       } else {
         this.status = false;
         this.buttonText = this.local.buttonstart;
-        clearInterval(this.timerId);
+        if (this.showtime == "Yes" || this.showtime == "Да") {
+          clearInterval(this.timerId);
+        }
       }
     },
     startTimer: function() {

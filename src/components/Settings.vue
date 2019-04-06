@@ -11,7 +11,7 @@
 
       <div class="form-group">
         <label for="selectshowtime">{{local.selectshowtime.title}}</label>
-        <select class="form-control form-control-sm" id="selectshowtime">
+        <select class="form-control form-control-sm" id="selectshowtime" v-model="showtime">
           <option>{{local.selectshowtime.yes}}</option>
           <option>{{local.selectshowtime.no}}</option>
         </select>
@@ -27,16 +27,42 @@
 export default {
   props: {
     local: Object
+    //showtime: String
   },
   data() {
     return {
-      lang: localStorage.getItem("local")
+      lang: "En",
+      showtime: "Yes",
+      settings: {}
     };
   },
-  created() {},
+  created() {
+    //this.lang = JSON.parse(localStorage.getItem("settings")).language;
+    if (localStorage.getItem("settings")) {
+      this.settings = JSON.parse(localStorage.getItem("settings"));
+      this.lang = this.settings.language;
+      this.showtime = this.settings.showtime;
+    } else {
+    }
+  },
   methods: {
     saveSettings() {
-      localStorage.setItem("local", this.lang);
+      this.settings.language = this.lang;
+      if (this.lang == "En") {
+        if (this.showtime == "Да" || this.showtime == "Yes") {
+          this.showtime = "Yes";
+        } else {
+          this.showtime = "No";
+        }
+      } else {
+        if (this.showtime == "Да" || this.showtime == "Yes") {
+          this.showtime = "Да";
+        } else {
+          this.showtime = "Нет";
+        }
+      }
+      this.settings.showtime = this.showtime;
+      localStorage.setItem("settings", JSON.stringify(this.settings));
       location.reload();
     }
   }

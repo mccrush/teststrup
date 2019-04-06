@@ -5,7 +5,7 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view :local="local"/>
+    <router-view :local="local" :showtime="showtime"/>
     <Footer :local="local"/>
     <Settings :local="local"/>
     <Modal :local="local"/>
@@ -32,14 +32,33 @@ export default {
   },
   data() {
     return {
-      local: {}
+      local: {},
+      showtime: ""
     };
   },
   created() {
-    if (localStorage.getItem("local") == "Ru") {
-      this.local = Ru;
+    if (localStorage.getItem("settings")) {
+      if (JSON.parse(localStorage.getItem("settings")).language == "Ru") {
+        this.local = Ru;
+        this.showtime = JSON.parse(localStorage.getItem("settings")).showtime;
+      } else {
+        this.local = En;
+        this.showtime = JSON.parse(localStorage.getItem("settings")).showtime;
+      }
+
+      // if (
+      //   JSON.parse(localStorage.getItem("settings")).showtime == "Yes" ||
+      //   JSON.parse(localStorage.getItem("settings")).showtime == "Да"
+      // ) {
+      //   this.showtime = "Yes";
+      // } else if
+
+      // else {
+      //   this.showtime = "No";
+      // }
     } else {
       this.local = En;
+      this.showtime = "Yes";
     }
 
     $(function() {
@@ -55,9 +74,7 @@ export default {
     //eventEmitter.$emit("keydow");
   },
   mounted() {},
-  methods: {
- 
-  }
+  methods: {}
 };
 </script>
 
