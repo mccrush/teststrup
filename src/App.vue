@@ -37,13 +37,19 @@ export default {
     };
   },
   created() {
-    if (localStorage.getItem("settings")) {
-      if (JSON.parse(localStorage.getItem("settings")).language == "Ru") {
+    if (localStorage.getItem("settings_teststrup")) {
+      if (
+        JSON.parse(localStorage.getItem("settings_teststrup")).language == "Ru"
+      ) {
         this.local = Ru;
-        this.showtime = JSON.parse(localStorage.getItem("settings")).showtime;
+        this.showtime = JSON.parse(
+          localStorage.getItem("settings_teststrup")
+        ).showtime;
       } else {
         this.local = En;
-        this.showtime = JSON.parse(localStorage.getItem("settings")).showtime;
+        this.showtime = JSON.parse(
+          localStorage.getItem("settings_teststrup")
+        ).showtime;
       }
 
       // if (
@@ -64,8 +70,8 @@ export default {
     $(function() {
       $('[data-toggle="tooltip"]').tooltip();
       if (
-        !localStorage.getItem("showmodal") ||
-        localStorage.getItem("showmodal") == true
+        !localStorage.getItem("showmodal_teststrup") ||
+        localStorage.getItem("showmodal_teststrup") == true
       ) {
         //console.log("Ну да, куки ент");
         $("#modalWindow").modal("show");

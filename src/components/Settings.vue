@@ -38,8 +38,8 @@ export default {
   },
   created() {
     //this.lang = JSON.parse(localStorage.getItem("settings")).language;
-    if (localStorage.getItem("settings")) {
-      this.settings = JSON.parse(localStorage.getItem("settings"));
+    if (localStorage.getItem("settings_teststrup")) {
+      this.settings = JSON.parse(localStorage.getItem("settings_teststrup"));
       this.lang = this.settings.language;
       this.showtime = this.settings.showtime;
     } else {
@@ -62,7 +62,7 @@ export default {
         }
       }
       this.settings.showtime = this.showtime;
-      localStorage.setItem("settings", JSON.stringify(this.settings));
+      localStorage.setItem("settings_teststrup", JSON.stringify(this.settings));
       location.reload();
     }
   }
