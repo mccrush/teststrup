@@ -1,6 +1,6 @@
 {
-  "name": "Stroop test",
-  "short_name": "ts",
+  "name": "Тест Струпа",
+  "short_name": "Струп",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
