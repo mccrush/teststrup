@@ -18,7 +18,9 @@
       </div>
       <button class="btn btn-success btn-block btn-sm" @click.prevent="saveSettings">{{local.buttonsave}}</button>
     </form>
-    <div v-html="local.descriptionapp" class="mt-2"></div>
+    <hr>
+    <button class="btn btn-light btn-sm btn-block dropdown-toggle mt-3" type="button" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings">{{local.buttonaboutapp}}</button>
+    <div v-html="local.descriptionapp" class="mt-3 collapse" id="collapseSettings"></div>
   </div>
 </template>
 <script>
@@ -37,7 +39,6 @@ export default {
     };
   },
   created() {
-    //this.lang = JSON.parse(localStorage.getItem("settings")).language;
     if (localStorage.getItem("settings_teststrup")) {
       this.settings = JSON.parse(localStorage.getItem("settings_teststrup"));
       this.lang = this.settings.language;
@@ -70,12 +71,14 @@ export default {
 </script>
 <style scoped>
 .settings {
-  width: 250px;
+  width: 0px;
   height: 100%;
   position: absolute;
   top: 0px;
-  right: -260px;
+  right: 0px;
   transition: 0.3s;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .form-control:focus {
   outline: none;

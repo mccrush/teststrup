@@ -26,5 +26,6 @@ export default {
     yellow: 'Yellow',
     green: 'Green'
   },
-  buttonsave: "Save"
+  buttonsave: "Save",
+  buttonaboutapp: 'About application'
 }

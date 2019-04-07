@@ -26,5 +26,6 @@ export default {
     yellow: 'Желтый',
     green: 'Зеленый'
   },
-  buttonsave: "Сохранить"
+  buttonsave: "Сохранить",
+  buttonaboutapp: 'О приложении'
 }
