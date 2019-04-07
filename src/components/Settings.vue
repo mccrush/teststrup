@@ -1,5 +1,5 @@
 <template>
-  <div id="settings" class="settings shadow bg-white pt-5 pl-3 pr-3">
+  <div id="settings" class="settings shadow bg-white pt-5">
     <form class="mt-3">
       <div class="form-group">
         <label for="selectlanguage">{{local.selectlanguage.title}}</label>
