@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.644b85249d6e59311539786a53f54cb2.js"
+  "precache-manifest.6887047fdec944f75714efa206286eae.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "teststrup"});
