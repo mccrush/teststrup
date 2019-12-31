@@ -1,8 +1,8 @@
 <template>
-  <div class="container mt-4">
+  <div class="container">
     <div class="row justify-content-center">
       <div class="col">
-        <table class="table table-borderless table-sm mt-4" cellspacing="0" cellpadding="0">
+        <table class="table table-borderless table-sm mt-3" cellspacing="0" cellpadding="0">
           <tr>
             <td class="11">&nbsp;</td>
             <td class="12">&nbsp;</td>
@@ -77,14 +77,11 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col p-3">
-        <button class="btn btn-outline-secondary btn-lg btn-block" @click="run">{{buttonText}}</button>
+    <div class="row pb-3">
+      <div class="col-9">
+        <button class="btn btn-outline-secondary btn-block" @click="run">{{buttonText}}</button>
       </div>
-    </div>
-
-    <div class="row">
-      <div v-if="showtime == 'Yes' || showtime == 'Да'" class="col p-3 text-center" id="timer">00:00:0</div>
+      <div v-if="showtime == 'Yes' || showtime == 'Да'" class="col pt-2 text-center" id="timer">00:00:0</div>
     </div>
   </div>
 </template>
@@ -202,10 +199,11 @@ export default {
 </script>
 <style scoped>
 table td {
-  padding: 10px 0 10px 0;
+  /* padding: 10px 0 10px 0; */
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
+  text-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.1);
 }
 .btn-lg {
   font-size: 1rem;
