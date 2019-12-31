@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col">
+      <Slovo class="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2 border" v-for="i in 36" :key="i+'td'" :class="i" />
+
+      <!-- <div class="col">
         <table class="table table-borderless table-sm mt-3" cellspacing="0" cellpadding="0">
           <tr>
             <td class="11">&nbsp;</td>
@@ -74,10 +76,10 @@
             <td class="105">&nbsp;</td>
           </tr>
         </table>
-      </div>
+      </div>-->
     </div>
 
-    <div class="row pb-3">
+    <div class="row mt-3 pb-3">
       <div class="col-9">
         <button class="btn btn-outline-secondary btn-block" @click="run">{{buttonText}}</button>
       </div>
@@ -90,10 +92,11 @@
 // @ is an alias to /src
 //import Settings from "@/components/Settings.vue";
 //import { eventEmitter } from "../main.js";
+import Slovo from "@/components/Slovo.vue";
 
 export default {
   name: "home",
-  components: {},
+  components: { Slovo },
   props: {
     local: Object,
     showtime: String
@@ -113,54 +116,55 @@ export default {
         this.status = true;
         this.buttonText = this.local.buttonstop;
 
-        for (var i = 1; i < 11; i++) {
-          for (var j = 1; j < 6; j++) {
-            var ranCol = Math.round(
-              this.min - 0.5 + Math.random() * (this.max - this.min + 1)
-            );
-            var ranText = Math.round(
-              this.min - 0.5 + Math.random() * (this.max - this.min + 1)
-            );
-            //console.log("ranText = "+ranText);
-            switch (ranCol) {
-              case 1:
-                var mcolor = "#D32F2F";
-                break;
-              case 2:
-                var mcolor = "#1976D2";
-                break;
-              case 3:
-                var mcolor = "#FBC02D";
-                break;
-              case 4:
-                var mcolor = "#689F38";
-                break;
-              default:
-                var mcolor = "#000000";
-            }
-            switch (ranText) {
-              case 1:
-                var mtext = this.local.color.red;
-                break;
-              case 2:
-                var mtext = this.local.color.blue;
-                break;
-              case 3:
-                var mtext = this.local.color.yellow;
-                break;
-              case 4:
-                var mtext = this.local.color.green;
-                break;
-              default:
-                var mtext = this.local.color.red;
-            }
-
-            $("." + i + "" + j).text(mtext);
-            $("." + i + "" + j).css("color", mcolor);
-
-            //console.log('.'+i+''+j);
+        // for (var i = 1; i < 11; i++) {
+        for (var j = 1; j < 37; j++) {
+          var ranCol = Math.round(
+            this.min - 0.5 + Math.random() * (this.max - this.min + 1)
+          );
+          var ranText = Math.round(
+            this.min - 0.5 + Math.random() * (this.max - this.min + 1)
+          );
+          //console.log("ranText = "+ranText);
+          switch (ranCol) {
+            case 1:
+              var mcolor = "#D32F2F";
+              break;
+            case 2:
+              var mcolor = "#1976D2";
+              break;
+            case 3:
+              var mcolor = "#FBC02D";
+              break;
+            case 4:
+              var mcolor = "#689F38";
+              break;
+            default:
+              var mcolor = "#000000";
           }
+          switch (ranText) {
+            case 1:
+              var mtext = this.local.color.red;
+              break;
+            case 2:
+              var mtext = this.local.color.blue;
+              break;
+            case 3:
+              var mtext = this.local.color.yellow;
+              break;
+            case 4:
+              var mtext = this.local.color.green;
+              break;
+            default:
+              var mtext = this.local.color.red;
+          }
+
+          // $("." + i + "" + j).text(mtext);
+          // $("." + i + "" + j).css("color", mcolor);
+
+          $("." + j).text(mtext);
+          $("." + j).css("color", mcolor);
         }
+        //}
         if (this.showtime == "Yes" || this.showtime == "Да") {
           clearInterval(this.timerId);
           this.startTimer();
