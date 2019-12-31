@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center bg-dark position-absolute w-100 ml-n3 p-2">
+  <div class="text-center bg-light rounded p-2 mt-3">
     <p class="text-muted font-weight-light mb-0">
       <small>
         Powered by&nbsp;
@@ -20,5 +20,6 @@ a {
 .text-center {
   line-height: 1;
   bottom: 0px;
+  width: 100%;
 }
 </style>
