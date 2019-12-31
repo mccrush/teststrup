@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <Navbar :local="local"/>
+    <Navbar :local="local" />
     <!-- <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>-->
-    <router-view :local="local" :showtime="showtime"/>
-    <Footer :local="local"/>
-    <Settings :local="local"/>
-    <Modal :local="local"/>
+    <router-view :local="local" :showtime="showtime" />
+    <!-- <Footer :local="local"/> -->
+    <Settings :local="local" />
+    <Modal :local="local" />
   </div>
 </template>
 

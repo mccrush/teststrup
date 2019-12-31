@@ -18,15 +18,20 @@
       </div>
       <button class="btn btn-success btn-block btn-sm" @click.prevent="saveSettings">{{local.buttonsave}}</button>
     </form>
-    <hr>
+    <hr />
     <button class="btn btn-light btn-sm btn-block dropdown-toggle mt-3" type="button" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings">{{local.buttonaboutapp}}</button>
     <div v-html="local.descriptionapp" class="mt-3 collapse" id="collapseSettings"></div>
+    <Footer :local="local" />
   </div>
 </template>
 <script>
 //import { eventEmitter } from "./../main.js";
+import Footer from "@/components/Footer.vue";
 
 export default {
+  components: {
+    Footer
+  },
   props: {
     local: Object
     //showtime: String
