@@ -3,6 +3,7 @@ export default {
   buttonstart: 'Старт',
   buttonstop: 'Стоп',
   settings: 'Настройки',
+  buttonClearRes: 'Очистить результаты',
   selectlanguage: {
     title: 'Язык',
     en: 'En',

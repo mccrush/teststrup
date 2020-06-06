@@ -22,7 +22,10 @@
       </div>
     </div>
 
-    <div class="row justify-content-center mt-3" v-if="lastResult.length">
+    <div
+      class="row justify-content-center mt-3"
+      v-if="lastResult.length && (showtime === 'Yes' || showtime === 'Да')"
+    >
       <div class="col-9 resList">
         <ul class="list-group">
           <li
@@ -42,7 +45,7 @@
         </ul>
       </div>
       <div class="col-3">
-        <button class="btn btn-light btn-sm btn-block" @click="clearRes">Clear all results</button>
+        <button class="btn btn-light btn-sm btn-block" @click="clearRes">{{local.buttonClearRes}}</button>
       </div>
     </div>
   </div>
