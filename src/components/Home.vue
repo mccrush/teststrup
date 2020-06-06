@@ -14,10 +14,36 @@
       <div class="col-9">
         <button class="btn btn-light btn-block" @click="run">{{buttonText}}</button>
       </div>
-      <div
-        v-if="showtime === 'Yes' || showtime === 'Да'"
-        class="col-3 pt-2 text-center bg-light"
-      >{{timer}}</div>
+      <div class="col-3 text-center">
+        <span
+          v-if="showtime === 'Yes' || showtime === 'Да'"
+          class="badge badge-light p-2 mt-1 w-100"
+        >{{timer}}</span>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-3" v-if="lastResult.length">
+      <div class="col-9 resList">
+        <ul class="list-group">
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center pt-2 pb-2 pl-3 pr-3"
+            v-for="(res, index) in lastResult"
+            :key="res.id"
+          >
+            <span>
+              <strong class="mr-2">{{index + 1}}</strong>
+              {{res.date + ' - ' + res.time}}
+            </span>
+            <button
+              class="btn btn-sm btn-light border p-0 pl-1 pr-1"
+              @click="removeRes(res.id)"
+            >&times;</button>
+          </li>
+        </ul>
+      </div>
+      <div class="col-3">
+        <button class="btn btn-light btn-sm btn-block" @click="clearRes">Clear all results</button>
+      </div>
     </div>
   </div>
 </template>
@@ -35,26 +61,44 @@ export default {
   data() {
     return {
       started: false,
-      timer: '00:00:00',
+      timer: '0:00:00',
       timerId: '',
       buttonText: this.local.buttonstart,
       min: 1,
       max: 4,
       words: [],
-      tempWords: []
+      tempWords: [],
+      lastResult: []
     }
   },
   mounted() {
     for (let i = 0; i < 36; i++) {
-      this.words.push({ word: '&nbsp;', color: '#fff' })
+      this.words.push({ word: '*', color: '#f2f2f2' })
     }
     document.addEventListener('keyup', e => {
       if (e.code == 'Space') {
         this.run()
       }
     })
+    this.lastResult = JSON.parse(localStorage.getItem('lastResult') || '[]')
   },
   methods: {
+    addRes() {
+      this.lastResult.unshift({
+        id: Date.now(),
+        time: this.timer,
+        date: new Date().toLocaleDateString()
+      })
+      localStorage.setItem('lastResult', JSON.stringify(this.lastResult))
+    },
+    removeRes(id) {
+      this.lastResult = this.lastResult.filter(res => res.id !== id)
+      localStorage.setItem('lastResult', JSON.stringify(this.lastResult))
+    },
+    clearRes() {
+      this.lastResult = []
+      localStorage.setItem('lastResult', JSON.stringify(this.lastResult))
+    },
     run() {
       if (!this.started) {
         this.started = true
@@ -114,6 +158,7 @@ export default {
       } else {
         this.started = false
         this.buttonText = this.local.buttonstart
+        this.addRes()
         if (this.showtime == 'Yes' || this.showtime == 'Да') {
           clearInterval(this.timerId)
         }
@@ -135,14 +180,19 @@ export default {
           }
         }
 
-        let min = m < 10 ? '0' + m : m
+        //let min = m < 10 ? '0' + m : m
         let sec = s < 10 ? '0' + s : s
         let mlss = mls < 10 ? '0' + mls : mls
-        this.timer = min + ':' + sec + ':' + mlss
+        this.timer = m + ':' + sec + ':' + mlss
       }, 10)
     }
   }
 }
 </script>
+
 <style scoped>
+.resList {
+  max-height: 124px;
+  overflow-y: auto;
+}
 </style>
