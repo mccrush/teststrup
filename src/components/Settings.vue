@@ -34,8 +34,8 @@
     <Footer :local="local" />
   </div>
 </template>
+
 <script>
-//import { eventEmitter } from "./../main.js";
 import Footer from '@/components/Footer.vue'
 
 export default {
@@ -44,7 +44,6 @@ export default {
   },
   props: {
     local: Object
-    //showtime: String
   },
   data() {
     return {
@@ -58,7 +57,6 @@ export default {
       this.settings = JSON.parse(localStorage.getItem('settings_teststrup'))
       this.lang = this.settings.language
       this.showtime = this.settings.showtime
-    } else {
     }
   },
   methods: {
@@ -84,6 +82,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .settings {
   width: 0px;
