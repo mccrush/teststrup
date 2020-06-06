@@ -1,6 +1,6 @@
 <template>
-  <div id="settings" class="settings shadow bg-white pt-5">
-    <form class="mt-3">
+  <div id="settings" class="settings shadow-sm bg-white pt-5">
+    <form class="mt-4">
       <div class="form-group">
         <label for="selectlanguage">{{local.selectlanguage.title}}</label>
         <select class="form-control form-control-sm" id="selectlanguage" v-model="lang">
@@ -16,17 +16,27 @@
           <option>{{local.selectshowtime.no}}</option>
         </select>
       </div>
-      <button class="btn btn-success btn-block btn-sm" @click.prevent="saveSettings">{{local.buttonsave}}</button>
+      <button
+        class="btn btn-success btn-block btn-sm"
+        @click.prevent="saveSettings"
+      >{{local.buttonsave}}</button>
     </form>
     <hr />
-    <button class="btn btn-light btn-sm btn-block dropdown-toggle mt-3" type="button" data-toggle="collapse" data-target="#collapseSettings" aria-expanded="false" aria-controls="collapseSettings">{{local.buttonaboutapp}}</button>
+    <button
+      class="btn btn-light btn-sm btn-block dropdown-toggle mt-3"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapseSettings"
+      aria-expanded="false"
+      aria-controls="collapseSettings"
+    >{{local.buttonaboutapp}}</button>
     <div v-html="local.descriptionapp" class="mt-3 collapse" id="collapseSettings"></div>
     <Footer :local="local" />
   </div>
 </template>
 <script>
 //import { eventEmitter } from "./../main.js";
-import Footer from "@/components/Footer.vue";
+import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
@@ -38,41 +48,41 @@ export default {
   },
   data() {
     return {
-      lang: "En",
-      showtime: "Yes",
+      lang: 'En',
+      showtime: 'Yes',
       settings: {}
-    };
+    }
   },
   created() {
-    if (localStorage.getItem("settings_teststrup")) {
-      this.settings = JSON.parse(localStorage.getItem("settings_teststrup"));
-      this.lang = this.settings.language;
-      this.showtime = this.settings.showtime;
+    if (localStorage.getItem('settings_teststrup')) {
+      this.settings = JSON.parse(localStorage.getItem('settings_teststrup'))
+      this.lang = this.settings.language
+      this.showtime = this.settings.showtime
     } else {
     }
   },
   methods: {
     saveSettings() {
-      this.settings.language = this.lang;
-      if (this.lang == "En") {
-        if (this.showtime == "Да" || this.showtime == "Yes") {
-          this.showtime = "Yes";
+      this.settings.language = this.lang
+      if (this.lang == 'En') {
+        if (this.showtime == 'Да' || this.showtime == 'Yes') {
+          this.showtime = 'Yes'
         } else {
-          this.showtime = "No";
+          this.showtime = 'No'
         }
       } else {
-        if (this.showtime == "Да" || this.showtime == "Yes") {
-          this.showtime = "Да";
+        if (this.showtime == 'Да' || this.showtime == 'Yes') {
+          this.showtime = 'Да'
         } else {
-          this.showtime = "Нет";
+          this.showtime = 'Нет'
         }
       }
-      this.settings.showtime = this.showtime;
-      localStorage.setItem("settings_teststrup", JSON.stringify(this.settings));
-      location.reload();
+      this.settings.showtime = this.showtime
+      localStorage.setItem('settings_teststrup', JSON.stringify(this.settings))
+      location.reload()
     }
   }
-};
+}
 </script>
 <style scoped>
 .settings {
