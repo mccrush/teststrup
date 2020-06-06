@@ -17,8 +17,7 @@
       <div
         v-if="showtime === 'Yes' || showtime === 'Да'"
         class="col-3 pt-2 text-center bg-light"
-        id="timer"
-      >00:00:00</div>
+      >{{timer}}</div>
     </div>
   </div>
 </template>
@@ -36,6 +35,7 @@ export default {
   data() {
     return {
       started: false,
+      timer: '00:00:00',
       timerId: '',
       buttonText: this.local.buttonstart,
       min: 1,
@@ -48,6 +48,11 @@ export default {
     for (let i = 0; i < 36; i++) {
       this.words.push({ word: '&nbsp;', color: '#fff' })
     }
+    document.addEventListener('keyup', e => {
+      if (e.code == 'Space') {
+        this.run()
+      }
+    })
   },
   methods: {
     run() {
@@ -100,7 +105,6 @@ export default {
           this.tempWords.push(word)
         }
         this.words = this.tempWords
-        //console.log(this.words)
         this.tempWords = []
 
         if (this.showtime == 'Yes' || this.showtime == 'Да') {
@@ -116,7 +120,6 @@ export default {
       }
     },
     startTimer() {
-      let timer = document.getElementById('timer')
       let m = 0,
         s = 0,
         mls = 0
@@ -135,7 +138,7 @@ export default {
         let min = m < 10 ? '0' + m : m
         let sec = s < 10 ? '0' + s : s
         let mlss = mls < 10 ? '0' + mls : mls
-        timer.innerText = min + ':' + sec + ':' + mlss
+        this.timer = min + ':' + sec + ':' + mlss
       }, 10)
     }
   }
