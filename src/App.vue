@@ -1,31 +1,28 @@
 <template>
   <div id="app">
     <Navbar :local="local" />
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>-->
-    <router-view :local="local" :showtime="showtime" />
-    <!-- <Footer :local="local"/> -->
+
+    <Home :local="local" :showtime="showtime" />
+
     <Settings :local="local" />
     <Modal :local="local" />
   </div>
 </template>
 
 <script>
-//import { eventEmitter } from "./main.js";
+import En from '@/language/en.js'
+import Ru from '@/language/ru.js'
 
-import En from "@/language/en.js";
-import Ru from "@/language/ru.js";
-
-import Navbar from "@/components/Navbar.vue";
-import Footer from "@/components/Footer.vue";
-import Settings from "@/components/Settings.vue";
-import Modal from "@/components/Modal.vue";
+import Navbar from '@/components/Navbar.vue'
+import Home from '@/components/Home.vue'
+import Footer from '@/components/Footer.vue'
+import Settings from '@/components/Settings.vue'
+import Modal from '@/components/Modal.vue'
 
 export default {
   components: {
     Navbar,
+    Home,
     Footer,
     Settings,
     Modal
@@ -33,23 +30,23 @@ export default {
   data() {
     return {
       local: {},
-      showtime: ""
-    };
+      showtime: ''
+    }
   },
   created() {
-    if (localStorage.getItem("settings_teststrup")) {
+    if (localStorage.getItem('settings_teststrup')) {
       if (
-        JSON.parse(localStorage.getItem("settings_teststrup")).language == "Ru"
+        JSON.parse(localStorage.getItem('settings_teststrup')).language == 'Ru'
       ) {
-        this.local = Ru;
+        this.local = Ru
         this.showtime = JSON.parse(
-          localStorage.getItem("settings_teststrup")
-        ).showtime;
+          localStorage.getItem('settings_teststrup')
+        ).showtime
       } else {
-        this.local = En;
+        this.local = En
         this.showtime = JSON.parse(
-          localStorage.getItem("settings_teststrup")
-        ).showtime;
+          localStorage.getItem('settings_teststrup')
+        ).showtime
       }
 
       // if (
@@ -63,25 +60,25 @@ export default {
       //   this.showtime = "No";
       // }
     } else {
-      this.local = En;
-      this.showtime = "Yes";
+      this.local = En
+      this.showtime = 'Yes'
     }
 
     $(function() {
-      $('[data-toggle="tooltip"]').tooltip();
+      $('[data-toggle="tooltip"]').tooltip()
       if (
-        !localStorage.getItem("showmodal_teststrup") ||
-        localStorage.getItem("showmodal_teststrup") == true
+        !localStorage.getItem('showmodal_teststrup') ||
+        localStorage.getItem('showmodal_teststrup') == true
       ) {
         //console.log("Ну да, куки ент");
-        $("#modalWindow").modal("show");
+        $('#modalWindow').modal('show')
       }
-    });
+    })
     //eventEmitter.$emit("keydow");
   },
   mounted() {},
   methods: {}
-};
+}
 </script>
 
 

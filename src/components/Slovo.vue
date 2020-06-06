@@ -1,20 +1,15 @@
 <template>
-  <div class="slovo p-1 text-center">Slovo</div>
+  <div class="slovo p-1 text-center" :style="'color:'+ color">{{word}}</div>
 </template>
 
 <script>
 export default {
-  created() {
-    this.newSlovo;
-  },
-  methods: {
-    newSlovo() {}
+  props: {
+    word: { type: String, default: '&nbsp;' },
+    color: { type: String, default: '#fff' }
   }
-};
+}
 </script>
 
 <style scoped>
-.slovo {
-  /* height: 30px; */
-}
 </style>
