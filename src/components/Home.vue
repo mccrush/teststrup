@@ -16,9 +16,9 @@
       </div>
       <div
         v-if="showtime === 'Yes' || showtime === 'Да'"
-        class="col-3 pt-2 text-center"
+        class="col-3 pt-2 text-center bg-light"
         id="timer"
-      >00:00:0</div>
+      >00:00:00</div>
     </div>
   </div>
 </template>
@@ -115,14 +115,15 @@ export default {
         }
       }
     },
-    startTimer: function() {
+    startTimer() {
       let timer = document.getElementById('timer')
       let m = 0,
         s = 0,
         mls = 0
+
       this.timerId = setInterval(() => {
         mls += 1
-        if (mls > 9) {
+        if (mls > 99) {
           s += 1
           mls = 0
           if (s > 59) {
@@ -130,11 +131,12 @@ export default {
             s = 0
           }
         }
-        //let mlsi = mls < 10 ? "0" + mls : mls;
-        let mi = m < 10 ? '0' + m : m
-        let si = s < 10 ? '0' + s : s
-        timer.innerText = mi + ':' + si + ':' + mls
-      }, 100)
+
+        let min = m < 10 ? '0' + m : m
+        let sec = s < 10 ? '0' + s : s
+        let mlss = mls < 10 ? '0' + mls : mls
+        timer.innerText = min + ':' + sec + ':' + mlss
+      }, 10)
     }
   }
 }

@@ -12,4 +12,7 @@ export default {
 </script>
 
 <style scoped>
+.slovo {
+  font-size: 1.2rem;
+}
 </style>
