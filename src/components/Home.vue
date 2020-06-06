@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-3">
       <Slovo
-        class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2 border"
+        class="col-4 col-sm-4 col-md-3 col-lg-2 col-xl-2"
         v-for="(word, index) in words"
         :key="index+'td'"
         :word="word.word"
@@ -10,13 +10,13 @@
       />
     </div>
 
-    <div class="row mt-3 pb-3">
+    <div class="row mt-3">
       <div class="col-9">
-        <button class="btn btn-outline-secondary btn-block" @click="run">{{buttonText}}</button>
+        <button class="btn btn-light btn-block" @click="run">{{buttonText}}</button>
       </div>
       <div
         v-if="showtime === 'Yes' || showtime === 'Да'"
-        class="col pt-2 text-center"
+        class="col-3 pt-2 text-center"
         id="timer"
       >00:00:0</div>
     </div>
@@ -100,10 +100,9 @@ export default {
           this.tempWords.push(word)
         }
         this.words = this.tempWords
-        console.log(this.words)
+        //console.log(this.words)
         this.tempWords = []
 
-        //}
         if (this.showtime == 'Yes' || this.showtime == 'Да') {
           clearInterval(this.timerId)
           this.startTimer()
@@ -141,14 +140,4 @@ export default {
 }
 </script>
 <style scoped>
-table td {
-  /* padding: 10px 0 10px 0; */
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.1);
-}
-.btn-lg {
-  font-size: 1rem;
-}
 </style>

@@ -19,6 +19,8 @@ import Footer from '@/components/Footer.vue'
 import Settings from '@/components/Settings.vue'
 import Modal from '@/components/Modal.vue'
 
+import $ from 'jquery'
+
 export default {
   components: {
     Navbar,
@@ -83,4 +85,35 @@ export default {
 
 
 <style>
+.container {
+  max-width: 960px;
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+.font-roboto-slab {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+}
+
+.material-icons.md-18 {
+  font-size: 18px;
+}
+.material-icons.md-24 {
+  font-size: 24px;
+}
+.material-icons.md-36 {
+  font-size: 36px;
+}
+.material-icons.md-48 {
+  font-size: 48px;
+}
 </style>
